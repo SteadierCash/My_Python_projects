@@ -10,8 +10,7 @@ This repository contains various Python projects that I've worked on.
    - **Description**: This project connects with the National Polish Bank API, downloads currency data, and creates plots.
 
 ### 3. tictac_toe
-   - **Description**: Implementation of the Tic Tac Toe game.
-   - **File(s)**: 
+   - **Description**: Implementation of the Tic Tac Toe game. 
 
 ### 4. vgchartz_scraping
    - **Description**: Scraping data from VGChartz website using BeautifulSoup.
