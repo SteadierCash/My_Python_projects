@@ -1,0 +1,12 @@
+[
+  {"action": "shop", "description": "In a hidden corner of the market, an elusive merchant presents a selection of enchanted blades. Choose a weapon to purchase and elevate your combat skills."},
+  {"action": "shop", "description": "A mystical forger sets up a temporary shop, showcasing a variety of magical staffs. Select a staff to enhance your spellcasting abilities."},
+  {"action": "shop", "description": "A traveling alchemist displays an assortment of potions with unique effects. Choose a potion to buy and gain a temporary advantage in battles."},
+  {"action": "shop", "description": "An ancient druid offers a collection of nature-infused bows. Pick a bow to purchase and harness the power of the natural world."},
+  {"action": "shop", "description": "A skilled archer-turned-merchant showcases a diverse array of arrows. Select a set of arrows to improve your ranged attacks."},
+  {"action": "shop", "description": "A spectral blacksmith reveals a selection of ethereal weapons. Choose a ghostly weapon to strike fear into the hearts of your enemies."},
+  {"action": "shop", "description": "A mysterious enchanter displays a range of magical rings. Choose a ring to purchase and gain mystical enhancements."},
+  {"action": "shop", "description": "A seasoned marksman presents a collection of crossbows. Choose a crossbow to purchase and excel in precision shooting."},
+  {"action": "shop", "description": "An otherworldly artificer offers a variety of enchanted gauntlets. Choose a pair to buy and strengthen your hand-to-hand combat."},
+  {"action": "shop", "description": "A celestial armorer showcases a celestial-themed armor set. Choose a piece of armor to purchase and enhance your defenses against otherworldly threats."}
+]

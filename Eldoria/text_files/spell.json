@@ -1,0 +1,17 @@
+[
+  {"spell_name":"Fireball","power":4,"strength":0,"heal":0,"kill":0,"disappear":0},
+  {"spell_name":"Healing Touch","power":0,"strength":0,"heal":1,"kill":0,"disappear":0},
+  {"spell_name":"Invisibility","power":0,"strength":0,"heal":0,"kill":0,"disappear":1},
+  {"spell_name":"Thunder Strike","power":0,"strength":5,"heal":0,"kill":0,"disappear":0},
+  {"spell_name":"Mystic Aura","power":3,"strength":0,"heal":0,"kill":0,"disappear":0},
+  {"spell_name":"Frost Nova","power":0,"strength":0,"heal":0,"kill":1,"disappear":0},
+  {"spell_name":"Blessing of the Sun","power":0,"strength":0,"heal":1,"kill":0,"disappear":0},
+  {"spell_name":"Shadowstep","power":0,"strength":0,"heal":0,"kill":0,"disappear":1},
+  {"spell_name":"Earthquake","power":0,"strength":4,"heal":0,"kill":0,"disappear":0},
+  {"spell_name":"Arcane Shield","power":0,"strength":0,"heal":1,"kill":0,"disappear":0},
+  {"spell_name":"Venomous Strike","power":0,"strength":0,"heal":0,"kill":1,"disappear":0},
+  {"spell_name":"Astral Projection","power":0,"strength":0,"heal":0,"kill":0,"disappear":1},
+  {"spell_name":"Solar Flare","power":5,"strength":0,"heal":0,"kill":0,"disappear":0},
+  {"spell_name":"Time Warp","power":0,"strength":0,"heal":0,"kill":0,"disappear":1},
+  {"spell_name":"Vitality Surge","power":0,"strength":0,"heal":1,"kill":0,"disappear":0}
+]

@@ -1,0 +1,11 @@
+[
+  {"character_id": 1, "class": "Knight", "power": 6, "strength": 4, "lives": 4},
+  {"character_id": 2, "class": "Sorcerer", "power": 8, "strength": 2, "lives": 5},
+  {"character_id": 3, "class": "Rogue", "power": 5, "strength": 5, "lives": 4},
+  {"character_id": 4, "class": "Paladin", "power": 4, "strength": 6, "lives": 5},
+  {"character_id": 5, "class": "Necromancer", "power": 3, "strength": 7, "lives": 4},
+  {"character_id": 6, "class": "Archer", "power": 7, "strength": 3, "lives": 5},
+  {"character_id": 7, "class": "Berserker", "power": 9, "strength": 1, "lives": 4},
+  {"character_id": 8, "class": "Druid", "power": 6, "strength": 4, "lives": 4},
+  {"character_id": 9, "class": "Assassin", "power": 5, "strength": 5, "lives": 5}
+]
