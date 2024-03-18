@@ -8,7 +8,7 @@ This repository contains various Python projects that I've worked on.
 
 ### 2. nbp_currency_api
    - **Description**: This project connects with the National Polish Bank API, downloads currency data, and creates plots.
-   - 
+     
 ### 3. pong_game
    - **Description**: Implementation of the Pong Game using Turtle library.
 
