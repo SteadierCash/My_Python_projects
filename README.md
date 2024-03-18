@@ -8,11 +8,17 @@ This repository contains various Python projects that I've worked on.
 
 ### 2. nbp_currency_api
    - **Description**: This project connects with the National Polish Bank API, downloads currency data, and creates plots.
+   - 
+### 3. pong_game
+   - **Description**: Implementation of the Pong Game using Turtle library.
 
-### 3. tictac_toe
+### 4. snake_game
+   - **Description**: Implementation of the Snake Game using Turtle library. 
+
+### 5. tic_tac_toe
    - **Description**: Implementation of the Tic Tac Toe game. 
 
-### 4. vgchartz_scraping
+### 6. vgchartz_scraping
    - **Description**: Scraping data from VGChartz website using BeautifulSoup.
 
 ## Usage:
