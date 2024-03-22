@@ -1,3 +1,6 @@
+# Hotelling Model
+The Hotelling model, also known as the Hotelling's linear city model, is an economic theory that describes spatial competition between firms. It posits that firms located along a linear market or spatial continuum will strategically position themselves to maximize market share and profit. In this model, firms choose their locations sequentially along the linear market, considering factors such as consumer preferences, transportation costs, and competitors' locations. Hotelling's model is commonly used to analyze scenarios such as product differentiation, pricing strategies, and spatial equilibrium in markets.
+
 # Algorithm Description
 
 The algorithm operates based on the following steps:
