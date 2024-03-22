@@ -6,19 +6,22 @@ This repository contains various Python projects that I've worked on.
 ### 1. Eldoria
    - **Description**: This project is a command-line game fully designed by me.
 
-### 2. nbp_currency_api
+### 2. Hotelling
+   - **Description**: Python script simulating Hotelling model for 4 players used by me in my bachelor thesis.
+
+### 3. nbp_currency_api
    - **Description**: This project connects with the National Polish Bank API, downloads currency data, and creates plots.
      
-### 3. pong_game
+### 4. pong_game
    - **Description**: Implementation of the Pong Game using Turtle library.
 
-### 4. snake_game
+### 5. snake_game
    - **Description**: Implementation of the Snake Game using Turtle library. 
 
-### 5. tic_tac_toe
+### 6. tic_tac_toe
    - **Description**: Implementation of the Tic Tac Toe game. 
 
-### 6. vgchartz_scraping
+### 7. vgchartz_scraping
    - **Description**: Scraping data from VGChartz website using BeautifulSoup.
 
 ## Usage:
