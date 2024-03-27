@@ -43,14 +43,14 @@ where:
 
 - Arguments:
    `i` is the position of the i-th client for which we calculate the cost
-#### `new_place`
+#### **new_place**
 - Description: Calculates a new position for a given player.
 - Arguments:
   - `iteration`: The current iteration number, representing the attempt to find a better position for the player.
   - `l`: The length of the market.
 - Functionality: Adjusts the player's position based on the current iteration and market length.
 
-#### `new_price`
+#### **new_price**
 - Description: Determines a new price for a given player.
 - Arguments:
   - `iteration`: The current iteration number, representing the attempt to find a better price for the player.
