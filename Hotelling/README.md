@@ -68,4 +68,4 @@ where:
 
 #### **write**
 - Description: Outputs selected player information.
-- Functionality: Used to print specific player details.
+- Functionality: Used to print specific player details
