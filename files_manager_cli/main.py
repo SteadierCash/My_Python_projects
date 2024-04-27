@@ -1,7 +1,7 @@
 from manager import TransactionManager
 
-
 def main():
+
     manager = TransactionManager()
     while True:
         file = input("File: ")

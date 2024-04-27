@@ -1,3 +1,12 @@
+import logging 
+
+
+logging.basicConfig(format='%(levelname)s : Date-Time : %(asctime)s : Line No. : %(lineno)d - %(message)s', 
+                    level = logging.DEBUG,
+                    filename = 'fileManager.log',
+                    filemode = 'a')
+
+
 class TransactionManager:
     """
     A class for processing data from a file.
@@ -55,8 +64,8 @@ class TransactionManager:
                 Counter of all records of transactions
             control_sum : int
                 Control sum of all transactions amounts
-            closed_for_changes : List[str]
-                List for fields that are closed for changes
+            closed_for_changes : str
+                String with fields that are closed for changes
             commited : bool
                 Check if user commited last changes 
         """
@@ -64,7 +73,7 @@ class TransactionManager:
         self.file = ""               
         self.total_counter = 0           
         self.control_sum = 0         
-        self.closed_for_changes = [] 
+        self.closed_for_changes = ""
         self.commited = False           
 
     def read_data(self, file: str):
@@ -86,36 +95,53 @@ class TransactionManager:
         self.file = file 
 
         try:
+            # Open File 
             with open(self.file, "r") as file:
                 for line in file:
+
+                    # If line is bigger than allowed than throw an exception
                     if len(line) != 120:
                         print("Invalid file structure: not all lines are 120 symbols width")
+                        line = line.rstrip('\n')
+                        logging.warning(f"Invalid file structure: not all lines are 120 symbols width: {line}")
                         return 1 
                     else:
                         self.data.append(line)
 
         except FileNotFoundError:
-            print("File not found.")
+            print("File not found")
+            logging.warning("File not found")
             return 1
 
         except IOError as e:
             print("An error occurred while reading the file:", e)
+            logging.error("An error occurred while reading the file:", e)
             return 1
 
         else:
+            # If data has been read check if mandatory filelds are in the file
             if self.data[0][:2] != "01" or self.data[-1][0:2] != "03":
                 print("Invalid file structure: there is no header or footer")
+                logging.warning("Invalid file structure: there is no header or footer")
                 return 1
             
             else:
+                # read total counter 
                 self.total_counter = int(self.data[-1][2:8].lstrip("0"))
+
+                # read control sum
                 ctr_sum = self.data[-1][8:20].lstrip("0")
                 if len(ctr_sum) != 0:
                     self.control_sum = float(ctr_sum[:-2] + "." + ctr_sum[-2:])
                 else:
                     self.control_sum = 0.0
 
+                # read closed filelds:
+                self.closed_for_changes = self.data[-1][20:22].strip()
+                
+
                 self.data.pop(-1)
+                logging.info(f"Successfully read data from {self.file}")
         
         return 0
 
@@ -125,9 +151,6 @@ class TransactionManager:
 
         This method prints the header of the file in a formatted manner. It assumes that the data
         has already been read from the file and stored in the `data` attribute.
-
-        If there is no data available (i.e., `data` is empty), it prints a message indicating
-        that there is no data to display and returns without further action.
 
         The header is expected to have the following structure:
             - The first two characters represent the identifier.
@@ -141,16 +164,12 @@ class TransactionManager:
         None
             This method does not return any value.
         """
-
-        if not self.data:
-            print("No data available. Please read data from the file first.")
-            return
         
         header = [self.data[0][:2],
                   self.data[0][2:30],
                   self.data[0][30:60],
                   self.data[0][60:90],
-                  self.data[0][91:].strip('\n')]
+                  self.data[0][90:].strip('\n')]
         
         # Header sign
         print("#" * 135)
@@ -173,6 +192,8 @@ class TransactionManager:
             print(f"# {header[i]} ", end = "")
         print("#")
         print("#" * 135)
+
+        logging.info(f"Successfully show header from {self.file}")
         
     def show_transactions(self, index=0):
         """
@@ -229,6 +250,11 @@ class TransactionManager:
             print("#")
         print("#" * 136)
 
+        how_many = end - start
+        multiple = "s" if how_many > 1 else ""
+
+        logging.info(f"Successfully show {how_many} transaction{multiple} from {self.file}")
+
     def add_transaction(self):
         """
         Add a new record to the data.
@@ -239,6 +265,11 @@ class TransactionManager:
             This method does not return any value.
         """
 
+        if self.total_counter == 20000:
+            print("The maximum capacity of the file has been reached. Further transactions cannot be added.")
+            logging.warning("The maximum capacity of the file has been reached. Further transactions cannot be added.")
+            return
+        
         field_id = "02"
 
         self.total_counter += 1
@@ -250,14 +281,18 @@ class TransactionManager:
 
         reserevd = " " * 96
 
+        print(field_id + counter + amount + currency + reserevd + '\n')
+
         self.data.append(field_id + counter + amount + currency + reserevd + "\n")
+
+        logging.info(f"Successfully add transaction to {self.file}")
 
     def change_transaction(self, index):
         """
         Change a transaction record in the data.
 
         This method modifies an existing transaction record in the data list at the specified index.
-        It allows changing the amount and currency fields of the transaction, if not closed for changes.
+        It allows changing the amount and currency fields of the transaction.
 
         Parameters
         ----------
@@ -275,15 +310,82 @@ class TransactionManager:
                 self.data[index][20:23],
                 self.data[index][23:].strip('\n')]
         
-        if "amount" not in self.closed_for_changes:
-            print(f"OLD amount: {line[2]}")
-            new_amount = self.take_and_validate_amount()
+        print(f"OLD amount: {line[2]}")
+        new_amount = self.take_and_validate_amount()
 
-        if "currency" not in self.closed_for_changes:
-            print(f"OLD currency: {line[3]}")
-            new_currency = self.take_and_validate_currency()
+        print(f"OLD currency: {line[3]}")
+        new_currency = self.take_and_validate_currency()
 
         self.data[index] = line[0] + line[1] + new_amount + new_currency + line[4] + "\n"
+
+        logging.info(f"Successfully change transaction number: {index} from {self.file}")
+
+    def change_header(self):
+        """
+        Change a header of a file.
+
+        Returns
+        -------
+        None
+            This method does not return any value.
+        """
+        header = [self.data[0][:2],                 # filed id
+                  self.data[0][2:30],               # name 
+                  self.data[0][30:60],              # surname 
+                  self.data[0][60:90],              # patronymic
+                  self.data[0][90:].strip('\n')]    # address
+        
+
+        print(f"OLD name: {header[1]}")
+        new_name = self.validate_new_header_val("name", len(header[1]))
+
+        print(f"OLD surname: {header[2]}")
+        new_surname = self.validate_new_header_val("surname", len(header[2]))
+
+        # For patronyimc there is possibility to leave an empty string 
+        print(f"OLD patronymic: {header[3]}")
+        new_patronymic = self.validate_new_header_val("patronymic", len(header[3]), min_len=-1)
+
+        print(f"OLD address: {header[4]}")
+        new_address = self.validate_new_header_val("address", len(header[4]))
+
+        self.data[0] = header[0] + new_name + new_surname + new_patronymic + new_address + "\n"
+
+        logging.info(f"Successfully change header from {self.file}")
+
+    def validate_new_header_val(self, val, max_len, min_len = 0):
+        """
+        Validate user input for the header of a file.
+
+        Parameters
+        ----------
+        val : str
+            The name or description of the value being validated.
+
+        max_len : int
+            The maximum length allowed for the header.
+
+        min_len : int, optional
+            The minimum length allowed for the header (default is 0).
+
+        Returns
+        -------
+        str
+            The validated header value, padded with spaces if necessary to reach `max_len`.
+
+        """
+        while True:
+            new = input(f"NEW {val}: ")
+
+            if len(new) > min_len and len(new) <= max_len:
+                break
+            else:
+                print(f"Invalid input. Please enter value between {min_len + 1} and {max_len} symbols.")
+                logging.warning(f"Invalid input - header - {val}")
+                
+        new =  new + " " * (max_len - len(new))
+
+        return new 
 
     def take_and_validate_amount(self):
         """
@@ -304,14 +406,18 @@ class TransactionManager:
                 amount = float(input("Amount: "))
                 if amount <= 0:
                     print("Amount must be a positive number.")
+                    logging.warning("Invalid input - amount")
                 elif amount != round(amount, 2):
                     print("Invalid input. Please enter a valid amount.")
+                    logging.warning("Invalid input - amount")
                 elif amount > 9999999999.99:
                     print("Amount is to big")
+                    logging.warning("Invalid input - amount")
                 else:
                     break
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
+                logging.warning("Invalid input - amount")
 
         self.control_sum += amount
         amount = "{:.2f}".format(amount)
@@ -351,6 +457,7 @@ class TransactionManager:
                 break
             else:
                 print("Invalid input. Please enter a valid currency (e.g., USD, EUR, JPY).")
+                logging.warning("Invalid input - currency")
 
         return currency
 
@@ -375,13 +482,17 @@ class TransactionManager:
         ctr_sum = ctr_sum.replace(".", "")
         control = "0" * (12 - len(ctr_sum)) + ctr_sum
 
-        reserevd = " " * 100
+        reserevd = " " * (100 - len(self.closed_for_changes))
 
-        self.data.append(field_id + counter + control + reserevd)
+        self.data.append(field_id + counter + control + self.closed_for_changes + reserevd)
 
         with open(self.file, "w") as file:
             file.writelines(self.data)
-        
+
+        self.data.pop(-1)
+
+        logging.info(f"Successfully commit changes to {self.file}")
+
     def format_counter(self, column):
         """
         Format a counter column by aligning it to the right.
@@ -432,59 +543,159 @@ class TransactionManager:
     def user_interface(self):
         while True:
             print("\nOptions:")
-            print("1. Show transactions")
-            print("2. Add transaction")
-            print("3. Change transaction")
-            print("4. Commit changes")
-            print("5. Exit")
+            print("1. Show")
+            print("2. Change")
+            print("3. Add transaction")
+            print("4. Close fileds for change")
+            print("5. Commit changes")
+            print("6. Exit")
             
             choice = input("Enter your choice: ")
             
-            if choice == "1":
-                self.show_transactions_interface()
-            elif choice == "2":
-                self.add_transaction()
-            elif choice == "3":
-                index = int(input("Write transaction counter: "))
+            try:
+                if choice == "1":
+                    self.interface_of_show()
 
-                if index > 0 and index <= self.total_counter:
-                    self.change_transaction(index)
-                else:
-                    print()
-                    print("Invalid transaction counter!")
+                elif choice == "2":
+                    self.interface_of_change()
+
+                elif choice == "3":
+                    self.add_transaction()
+                    self.commited = False
                 
-            elif choice == "4":
-                self.commit_changes()
-            elif choice == "5":
-                print("Exiting program...")
-                break
-            else:
-                print("Invalid choice. Please enter a number from 1 to 4.")
+                elif choice == "4":
+                    self.interface_for_close_field()
+
+                elif choice == "5":
+                    self.commit_changes()
+                    self.commited = True
+
+                elif choice == "6":
+                    if not self.commited:
+                        ans = input("You haven't committed all changes. Are you sure you want to exit? (yes/no): ")
+                        if ans.lower() == "yes":
+                            self.commited = True
+                    
+                    if self.commited:
+                            print("Exiting program...")
+                            logging.info("Exiting program.")
+                            break
+
+                else:
+                    print("Invalid choice. Please enter a number from 1 to 6.")
+
+            except Exception as e:
+                logging.error(f"An unexpected error occurred: {e}")
+                print(f"An unexpected error occurred: {e}")
     
-    def show_transactions_interface(self):
+    def interface_of_show(self):
         while True:
             print("\nOptions:")
-            print("1. Show choosen transasction")
-            print("2. Show all")
-            print("3. Go back...")
+            print("1. Show all")
+            print("2. Show choosen transasction")
+            print("3. Show header")
+            print("4. Go back")
             
             choice = input("Enter your choice: ")
-            
-            if choice == "1":
-                index = int(input("Write transaction counter: "))
-                if index > 0 and index <= self.total_counter:
-                    self.show_transactions(index=index)
+            try:
+                if choice == "1":
+                    self.show_transactions()
+
+                elif choice == "2":
+                    index = int(input("Write transaction counter: "))
+                    if index > 0 and index <= self.total_counter:
+                        self.show_transactions(index=index)
+
+                    else:
+                        print("Invalid transaction counter!")
+
+                elif choice == "3":
+                    self.show_header()
+
+                elif choice == "4":
+                    print("Going back")
+                    break
 
                 else:
-                    print()
-                    print("Invalid transaction counter!")
+                    print("Invalid choice. Please enter a number from 1 to 4.")
 
-            elif choice == "2":
-                self.show_transactions()
-            elif choice == "3":
-                print("Going back")
-                break
-            else:
-                print("Invalid choice. Please enter a number from 1 to 3.")
-    
+            except Exception as e:
+                print(f"An unexpected error occurred")
+                logging.error(f"An unexpected error occurred: {e}")
+
+    def interface_of_change(self):
+        while True:
+            print("\nOptions:")
+            print("1. Change transaction")
+            print("2. Change header")
+            print("3. Go back")
+            
+            choice = input("Enter your choice: ")
+            try:
+                if choice == "1":
+                    if "T" not in self.closed_for_changes:
+                        index = int(input("Write transaction counter: "))
+                        if index > 0 and index <= self.total_counter:
+                            self.change_transaction(index=index)
+                            self.commited = False
+
+                        else:
+                            print("Invalid transaction counter!")
+                    else:
+                        print("Filed - Transactions - is closed for changes")
+
+                elif choice == "2":
+                    if "H" not in self.closed_for_changes:
+                        self.change_header()
+                        self.commited = False
+                    else:
+                        print("Filed - Header - is closed for changes")
+
+                elif choice == "3":
+                    print("Going back")
+                    break
+
+                else:
+                    print("Invalid choice. Please enter a number from 1 to 3.")
+
+            except Exception as e:
+                print(f"An unexpected error occurred")
+                logging.error(f"An unexpected error occurred: {e}")
         
+    def interface_for_close_field(self):
+        while True:
+            print("\nWhich filed do you want to close for changes:")
+            print("1. Header")
+            print("2. Transactions")
+            print("3. Go back")
+            
+            choice = input("Enter your choice: ")
+            try:
+                if choice == "1":
+                    if "H" not in self.closed_for_changes:
+                        self.closed_for_changes += "H"
+                        self.commited = False
+                        print("Successfully closed - Header - for changes")
+                        logging.info("Successfully closed - Header - for changes")
+                    else:
+                        print("Field - Header is already closed for changes")
+
+                elif choice == "2":
+                    if "T" not in self.closed_for_changes:
+                        self.closed_for_changes += "T"
+                        self.commited = False
+                        print("Successfully closed - Transactions - for changes")
+                        logging.info("Successfully closed - Transactions - for changes")
+                    else:
+                        print("Field - Transactions is already closed for changes")
+
+                elif choice == "3":
+                    print("Going back")
+                    break
+
+                else:
+                    print("Invalid choice. Please enter a number from 1 to 3.")
+
+            except Exception as e:
+                print(f"An unexpected error occurred")
+                logging.error(f"An unexpected error occurred: {e}")
