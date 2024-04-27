@@ -85,3 +85,10 @@ INFO : Date-Time : 2024-04-28 00:54:58,458 : Line No. : 581 - Exiting program.
 INFO : Date-Time : 2024-04-28 00:55:03,429 : Line No. : 144 - Successfully read data from test.txt
 INFO : Date-Time : 2024-04-28 00:55:14,876 : Line No. : 494 - Successfully commit changes to test.txt
 INFO : Date-Time : 2024-04-28 00:55:17,214 : Line No. : 581 - Exiting program.
+INFO : Date-Time : 2024-04-28 00:58:15,118 : Line No. : 144 - Successfully read data from test.txt
+INFO : Date-Time : 2024-04-28 00:58:42,310 : Line No. : 581 - Exiting program.
+INFO : Date-Time : 2024-04-28 00:59:03,073 : Line No. : 144 - Successfully read data from test.txt
+INFO : Date-Time : 2024-04-28 01:00:11,113 : Line No. : 354 - Successfully change header from test.txt
+INFO : Date-Time : 2024-04-28 01:00:18,144 : Line No. : 196 - Successfully show header from test.txt
+INFO : Date-Time : 2024-04-28 01:00:24,449 : Line No. : 494 - Successfully commit changes to test.txt
+INFO : Date-Time : 2024-04-28 01:00:29,717 : Line No. : 581 - Exiting program.
