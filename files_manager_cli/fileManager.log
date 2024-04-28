@@ -1,94 +1,37 @@
-INFO : Date-Time : 2024-04-27 21:31:44,453 : Line No. : 133 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-27 21:31:49,021 : Line No. : 245 - Successfully show 19 transactions from test.txt
-ERROR : Date-Time : 2024-04-27 21:32:22,328 : Line No. : 366 - Invalid input - amount
-ERROR : Date-Time : 2024-04-27 21:32:26,439 : Line No. : 371 - Invalid input - amount
-INFO : Date-Time : 2024-04-27 21:34:54,348 : Line No. : 270 - Successfully add transaction to test.txt
-INFO : Date-Time : 2024-04-27 21:35:04,967 : Line No. : 445 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-27 21:35:35,412 : Line No. : 328 - Successfully change header from test.txt
-INFO : Date-Time : 2024-04-27 23:29:58,259 : Line No. : 133 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-27 23:40:16,763 : Line No. : 133 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-27 23:40:22,283 : Line No. : 245 - Successfully show 20 transactions from test.txt
-INFO : Date-Time : 2024-04-27 23:40:28,268 : Line No. : 245 - Successfully show 1 transaction from test.txt
-INFO : Date-Time : 2024-04-27 23:40:30,898 : Line No. : 185 - Successfully show header from test.txt
-WARNING : Date-Time : 2024-04-27 23:40:56,228 : Line No. : 394 - Invalid input - amount
-INFO : Date-Time : 2024-04-27 23:41:03,601 : Line No. : 303 - Successfully change transaction number: 3 from test.txt
-INFO : Date-Time : 2024-04-27 23:41:30,015 : Line No. : 270 - Successfully add transaction to test.txt
-INFO : Date-Time : 2024-04-27 23:41:32,933 : Line No. : 476 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-27 23:43:13,593 : Line No. : 133 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-27 23:43:16,006 : Line No. : 245 - Successfully show 21 transactions from test.txt
-INFO : Date-Time : 2024-04-27 23:43:18,321 : Line No. : 245 - Successfully show 1 transaction from test.txt
-INFO : Date-Time : 2024-04-27 23:43:19,677 : Line No. : 185 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-27 23:43:28,807 : Line No. : 303 - Successfully change transaction number: 4 from test.txt
-INFO : Date-Time : 2024-04-27 23:43:52,905 : Line No. : 336 - Successfully change header from test.txt
-INFO : Date-Time : 2024-04-27 23:44:12,546 : Line No. : 185 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-27 23:45:14,569 : Line No. : 185 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-27 23:45:16,210 : Line No. : 185 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-27 23:45:28,108 : Line No. : 185 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-27 23:45:39,184 : Line No. : 270 - Successfully add transaction to test.txt
-INFO : Date-Time : 2024-04-27 23:45:47,476 : Line No. : 476 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-27 23:45:50,489 : Line No. : 562 - Exiting program.
-WARNING : Date-Time : 2024-04-27 23:46:56,681 : Line No. : 103 - Invalid file structure: not all lines are 120 symbols width: 03000022000118968113                                                                                                    
-
-WARNING : Date-Time : 2024-04-27 23:47:10,531 : Line No. : 121 - Invalid file structure: there is no header or footer
-INFO : Date-Time : 2024-04-27 23:47:20,361 : Line No. : 133 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-27 23:47:26,049 : Line No. : 185 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-27 23:47:36,678 : Line No. : 270 - Successfully add transaction to test.txt
-INFO : Date-Time : 2024-04-27 23:47:43,303 : Line No. : 476 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-27 23:48:05,993 : Line No. : 562 - Exiting program.
-WARNING : Date-Time : 2024-04-27 23:49:18,162 : Line No. : 103 - Invalid file structure: not all lines are 120 symbols width: 02000021000001231234GBP                                                                                                 
-WARNING : Date-Time : 2024-04-27 23:49:30,507 : Line No. : 103 - Invalid file structure: not all lines are 120 symbols width: 02000021000001231234GBP                                                                                                 
-INFO : Date-Time : 2024-04-27 23:49:40,816 : Line No. : 133 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-27 23:49:51,748 : Line No. : 270 - Successfully add transaction to test.txt
-INFO : Date-Time : 2024-04-27 23:49:54,275 : Line No. : 245 - Successfully show 65 transactions from test.txt
-INFO : Date-Time : 2024-04-28 00:03:10,932 : Line No. : 562 - Exiting program.
-INFO : Date-Time : 2024-04-28 00:03:19,897 : Line No. : 133 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-28 00:03:26,679 : Line No. : 272 - Successfully add transaction to test.txt
-INFO : Date-Time : 2024-04-28 00:03:42,958 : Line No. : 245 - Successfully show 23 transactions from test.txt
-INFO : Date-Time : 2024-04-28 00:03:56,473 : Line No. : 564 - Exiting program.
-INFO : Date-Time : 2024-04-28 00:04:02,749 : Line No. : 133 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-28 00:04:16,446 : Line No. : 272 - Successfully add transaction to test.txt
-INFO : Date-Time : 2024-04-28 00:04:33,322 : Line No. : 245 - Successfully show 23 transactions from test.txt
-INFO : Date-Time : 2024-04-28 00:05:03,383 : Line No. : 245 - Successfully show 23 transactions from test.txt
-INFO : Date-Time : 2024-04-28 00:05:09,563 : Line No. : 185 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-28 00:05:15,702 : Line No. : 245 - Successfully show 1 transaction from test.txt
-WARNING : Date-Time : 2024-04-28 00:05:26,453 : Line No. : 399 - Invalid input - amount
-INFO : Date-Time : 2024-04-28 00:05:50,274 : Line No. : 272 - Successfully add transaction to test.txt
-INFO : Date-Time : 2024-04-28 00:05:52,761 : Line No. : 245 - Successfully show 24 transactions from test.txt
-INFO : Date-Time : 2024-04-28 00:09:10,739 : Line No. : 245 - Successfully show 24 transactions from test.txt
-INFO : Date-Time : 2024-04-28 00:42:24,353 : Line No. : 564 - Exiting program.
-INFO : Date-Time : 2024-04-28 00:42:32,244 : Line No. : 143 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-28 00:42:35,002 : Line No. : 255 - Successfully show 22 transactions from test.txt
-INFO : Date-Time : 2024-04-28 00:42:40,883 : Line No. : 195 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-28 00:45:14,530 : Line No. : 614 - Exiting program.
-INFO : Date-Time : 2024-04-28 00:45:21,513 : Line No. : 143 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-28 00:45:34,961 : Line No. : 320 - Successfully change transaction number: 4 from test.txt
-WARNING : Date-Time : 2024-04-28 00:46:27,612 : Line No. : 383 - Invalid input - header - address
-INFO : Date-Time : 2024-04-28 00:46:40,092 : Line No. : 353 - Successfully change header from test.txt
-INFO : Date-Time : 2024-04-28 00:46:47,160 : Line No. : 255 - Successfully show 22 transactions from test.txt
-INFO : Date-Time : 2024-04-28 00:46:54,551 : Line No. : 195 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-28 00:47:00,621 : Line No. : 493 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-28 00:47:19,423 : Line No. : 678 - Successfully closed - Header - for changes
-INFO : Date-Time : 2024-04-28 00:47:42,674 : Line No. : 687 - Successfully closed - Transactions - for changes
-INFO : Date-Time : 2024-04-28 00:48:19,191 : Line No. : 287 - Successfully add transaction to test.txt
-INFO : Date-Time : 2024-04-28 00:48:22,782 : Line No. : 493 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-28 00:49:35,230 : Line No. : 580 - Exiting program.
-INFO : Date-Time : 2024-04-28 00:49:41,657 : Line No. : 143 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-28 00:49:48,502 : Line No. : 678 - Successfully closed - Header - for changes
-INFO : Date-Time : 2024-04-28 00:49:52,898 : Line No. : 493 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-28 00:53:59,806 : Line No. : 580 - Exiting program.
-INFO : Date-Time : 2024-04-28 00:54:21,019 : Line No. : 144 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-28 00:54:24,439 : Line No. : 679 - Successfully closed - Header - for changes
-INFO : Date-Time : 2024-04-28 00:54:32,173 : Line No. : 494 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-28 00:54:49,493 : Line No. : 688 - Successfully closed - Transactions - for changes
-INFO : Date-Time : 2024-04-28 00:54:53,021 : Line No. : 494 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-28 00:54:58,458 : Line No. : 581 - Exiting program.
-INFO : Date-Time : 2024-04-28 00:55:03,429 : Line No. : 144 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-28 00:55:14,876 : Line No. : 494 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-28 00:55:17,214 : Line No. : 581 - Exiting program.
-INFO : Date-Time : 2024-04-28 00:58:15,118 : Line No. : 144 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-28 00:58:42,310 : Line No. : 581 - Exiting program.
-INFO : Date-Time : 2024-04-28 00:59:03,073 : Line No. : 144 - Successfully read data from test.txt
-INFO : Date-Time : 2024-04-28 01:00:11,113 : Line No. : 354 - Successfully change header from test.txt
-INFO : Date-Time : 2024-04-28 01:00:18,144 : Line No. : 196 - Successfully show header from test.txt
-INFO : Date-Time : 2024-04-28 01:00:24,449 : Line No. : 494 - Successfully commit changes to test.txt
-INFO : Date-Time : 2024-04-28 01:00:29,717 : Line No. : 581 - Exiting program.
+INFO : Date-Time : 2024-04-28 13:38:17,872 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-28 13:46:55,071 : Line No. : 256 - Successfully show 4 transactions from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-28 13:48:25,379 : Line No. : 256 - Successfully show 1 transaction from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-28 14:08:19,041 : Line No. : 321 - Successfully change transaction number: 2 from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-28 14:10:52,874 : Line No. : 354 - Successfully change header from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-28 14:12:29,629 : Line No. : 288 - Successfully add transaction to testFiles/validFile.txt
+INFO : Date-Time : 2024-04-28 14:13:51,284 : Line No. : 732 - Successfully closed - Header - for changes
+INFO : Date-Time : 2024-04-28 14:19:35,120 : Line No. : 741 - Successfully closed - Transactions - for changes
+INFO : Date-Time : 2024-04-28 14:23:43,564 : Line No. : 493 - Successfully commit changes to testFiles/validFile.txt
+INFO : Date-Time : 2024-04-28 14:25:44,462 : Line No. : 601 - Exiting program.
+WARNING : Date-Time : 2024-04-28 14:31:14,274 : Line No. : 113 - File not found
+WARNING : Date-Time : 2024-04-28 14:31:35,333 : Line No. : 125 - Invalid file structure: there is no header or footer
+WARNING : Date-Time : 2024-04-28 14:33:17,834 : Line No. : 125 - Invalid file structure: there is no header or footer
+INFO : Date-Time : 2024-04-28 14:33:33,667 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
+WARNING : Date-Time : 2024-04-28 14:39:31,267 : Line No. : 418 - Invalid input - amount
+WARNING : Date-Time : 2024-04-28 14:39:38,778 : Line No. : 410 - Invalid input - amount
+WARNING : Date-Time : 2024-04-28 14:39:45,693 : Line No. : 458 - Invalid input - currency
+INFO : Date-Time : 2024-04-28 14:39:49,033 : Line No. : 286 - Successfully add transaction to testFiles/validFile.txt
+WARNING : Date-Time : 2024-04-28 14:46:33,726 : Line No. : 382 - Invalid input - header - surname
+INFO : Date-Time : 2024-04-28 14:46:38,368 : Line No. : 352 - Successfully change header from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-28 14:46:45,379 : Line No. : 196 - Successfully show header from testFiles/validFile.txt
+WARNING : Date-Time : 2024-04-28 14:49:33,523 : Line No. : 418 - Invalid input - amount
+WARNING : Date-Time : 2024-04-28 14:49:39,859 : Line No. : 458 - Invalid input - currency
+INFO : Date-Time : 2024-04-28 14:49:43,939 : Line No. : 319 - Successfully change transaction number: 3 from testFiles/validFile.txt
+WARNING : Date-Time : 2024-04-28 14:51:47,983 : Line No. : 382 - Invalid input - header - name
+WARNING : Date-Time : 2024-04-28 14:52:23,498 : Line No. : 382 - Invalid input - header - surname
+WARNING : Date-Time : 2024-04-28 14:53:07,933 : Line No. : 382 - Invalid input - header - address
+INFO : Date-Time : 2024-04-28 14:53:26,151 : Line No. : 352 - Successfully change header from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-28 14:56:54,427 : Line No. : 601 - Exiting program.
+INFO : Date-Time : 2024-04-28 14:59:29,888 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
+ERROR : Date-Time : 2024-04-28 14:59:32,894 : Line No. : 609 - An unexpected error occurred: name 'add_error_here' is not defined
+INFO : Date-Time : 2024-04-28 15:00:40,095 : Line No. : 602 - Exiting program.
+INFO : Date-Time : 2024-04-28 15:01:04,420 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
+ERROR : Date-Time : 2024-04-28 15:01:06,316 : Line No. : 609 - An unexpected error occurred: name 'add_error_here' is not defined
+INFO : Date-Time : 2024-04-28 15:01:32,617 : Line No. : 602 - Exiting program.
+INFO : Date-Time : 2024-04-28 15:01:46,321 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
+ERROR : Date-Time : 2024-04-28 15:01:47,825 : Line No. : 609 - An unexpected error occurred: name 'add_error_here' is not defined

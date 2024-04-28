@@ -24,7 +24,7 @@ class TransactionManager:
     -------
     read_data(file: str)
         Read data from the given file.
-    show_header()
+    display_header()
         Display the header of the file.
     show_data(index: int = 0)
         Display the data from the file.
@@ -145,7 +145,7 @@ class TransactionManager:
         
         return 0
 
-    def show_header(self):
+    def display_header(self):
         """
         Display the header of the file.
 
@@ -281,8 +281,6 @@ class TransactionManager:
 
         reserevd = " " * 96
 
-        print(field_id + counter + amount + currency + reserevd + '\n')
-
         self.data.append(field_id + counter + amount + currency + reserevd + "\n")
 
         logging.info(f"Successfully add transaction to {self.file}")
@@ -306,7 +304,7 @@ class TransactionManager:
         """
         line = [self.data[index][:2],
                 self.data[index][2:8],
-                self.format_amount(self.data[index][8:20]),
+                self.format_amount(self.data[index][8:20]).strip(),
                 self.data[index][20:23],
                 self.data[index][23:].strip('\n')]
         
@@ -336,17 +334,17 @@ class TransactionManager:
                   self.data[0][90:].strip('\n')]    # address
         
 
-        print(f"OLD name: {header[1]}")
+        print(f"\nOLD name: {header[1]}")
         new_name = self.validate_new_header_val("name", len(header[1]))
 
-        print(f"OLD surname: {header[2]}")
+        print(f"\nOLD surname: {header[2]}")
         new_surname = self.validate_new_header_val("surname", len(header[2]))
 
         # For patronyimc there is possibility to leave an empty string 
-        print(f"OLD patronymic: {header[3]}")
+        print(f"\nOLD patronymic: {header[3]}")
         new_patronymic = self.validate_new_header_val("patronymic", len(header[3]), min_len=-1)
 
-        print(f"OLD address: {header[4]}")
+        print(f"\nOLD address: {header[4]}")
         new_address = self.validate_new_header_val("address", len(header[4]))
 
         self.data[0] = header[0] + new_name + new_surname + new_patronymic + new_address + "\n"
@@ -387,7 +385,7 @@ class TransactionManager:
 
         return new 
 
-    def take_and_validate_amount(self):
+    def take_and_validate_amount(self) -> str:
         """
         Take and validate the amount for a transaction.
 
@@ -403,7 +401,7 @@ class TransactionManager:
         """
         while True:
             try:
-                amount = float(input("Amount: "))
+                amount = float(input("NEW amount: "))
                 if amount <= 0:
                     print("Amount must be a positive number.")
                     logging.warning("Invalid input - amount")
@@ -426,7 +424,7 @@ class TransactionManager:
 
         return amount
 
-    def take_and_validate_currency(self):
+    def take_and_validate_currency(self) -> str:
         """
         Take and validate the currency for a transaction.
 
@@ -452,7 +450,7 @@ class TransactionManager:
                                "MVR", "GNF", "MWK", "ETB", "MOP", "XAF", "XOF", "XPF", "XDR", "XAG", "XAU", "XPD", "XPT"]
 
         while True:
-            currency = input("Currency: ").upper()
+            currency = input("NEW currency: ").upper()
             if currency in possible_currencies:
                 break
             else:
@@ -486,14 +484,19 @@ class TransactionManager:
 
         self.data.append(field_id + counter + control + self.closed_for_changes + reserevd)
 
-        with open(self.file, "w") as file:
-            file.writelines(self.data)
+        try: 
+            with open(self.file, "w") as file:
+                file.writelines(self.data)
 
-        self.data.pop(-1)
+            self.data.pop(-1)
+            print("\nSuccessfully commit changes")
+            logging.info(f"Successfully commit changes to {self.file}")
 
-        logging.info(f"Successfully commit changes to {self.file}")
+        except Exception as e:
+            print(f"\nAn unexpected error occurred")
+            logging.error(f"An unexpected error occurred: {e}")
 
-    def format_counter(self, column):
+    def format_counter(self, column) -> str:
         """
         Format a counter column by aligning it to the right.
 
@@ -516,7 +519,7 @@ class TransactionManager:
 
         return " " * n + column
     
-    def format_amount(self, column):
+    def format_amount(self, column) -> str: 
         """
         Format an amount column by aligning it to the right and inserting a decimal point.
 
@@ -541,6 +544,23 @@ class TransactionManager:
         return " " * (n) + column
 
     def user_interface(self):
+        """
+        Launch a command-line interface for interacting with the data manager.
+
+        This method presents a menu-driven interface for users to interact with the data manager.
+        Users can choose various options such as displaying transactions, changing transaction records,
+        adding new transactions, closing fields for changes, committing changes to the file, or exiting the program.
+        The interface ensures that changes are committed before exiting, if any.
+
+        Exceptions
+        ----------
+        Any other unexpected errors encountered during execution are logged.
+
+        Returns
+        -------
+        None
+            This method does not return any value.
+        """
         while True:
             print("\nOptions:")
             print("1. Show")
@@ -586,9 +606,21 @@ class TransactionManager:
 
             except Exception as e:
                 logging.error(f"An unexpected error occurred: {e}")
-                print(f"An unexpected error occurred: {e}")
+                print(f"\nAn unexpected error occurred")
     
     def interface_of_show(self):
+        """
+        Launch a command-line interface for displaying transactions and header information.
+
+        This method presents a menu-driven interface for displaying transactions and header information.
+        Users can choose to display all transactions, a specific transaction, or the header of the file.
+        The user can also opt to go back to the previous menu.
+
+        Returns
+        -------
+        None
+            This method does not return any value.
+        """
         while True:
             print("\nOptions:")
             print("1. Show all")
@@ -607,23 +639,35 @@ class TransactionManager:
                         self.show_transactions(index=index)
 
                     else:
-                        print("Invalid transaction counter!")
+                        print("\nInvalid transaction counter!")
 
                 elif choice == "3":
-                    self.show_header()
+                    self.display_header()
 
                 elif choice == "4":
-                    print("Going back")
+                    print("Going back...")
                     break
 
                 else:
-                    print("Invalid choice. Please enter a number from 1 to 4.")
+                    print("\nInvalid choice. Please enter a number from 1 to 4.")
 
             except Exception as e:
-                print(f"An unexpected error occurred")
+                print(f"\nAn unexpected error occurred")
                 logging.error(f"An unexpected error occurred: {e}")
 
     def interface_of_change(self):
+        """
+        Launch a command-line interface for changing transactions and header information.
+
+        This method presents a menu-driven interface for users to change transaction records and header information.
+        Users can choose to change a specific transaction record, change the header of the file,
+        or go back to the previous menu. The interface ensures that changes are committed before exiting.
+
+        Returns
+        -------
+        None
+            This method does not return any value.
+    """
         while True:
             print("\nOptions:")
             print("1. Change transaction")
@@ -640,29 +684,41 @@ class TransactionManager:
                             self.commited = False
 
                         else:
-                            print("Invalid transaction counter!")
+                            print("\nInvalid transaction counter!")
                     else:
-                        print("Filed - Transactions - is closed for changes")
+                        print("\nFiled - Transactions - is closed for changes")
 
                 elif choice == "2":
                     if "H" not in self.closed_for_changes:
                         self.change_header()
                         self.commited = False
                     else:
-                        print("Filed - Header - is closed for changes")
+                        print("\nFiled - Header - is closed for changes")
 
                 elif choice == "3":
-                    print("Going back")
+                    print("Going back...")
                     break
 
                 else:
-                    print("Invalid choice. Please enter a number from 1 to 3.")
+                    print("\nInvalid choice. Please enter a number from 1 to 3.")
 
             except Exception as e:
-                print(f"An unexpected error occurred")
+                print(f"\nAn unexpected error occurred")
                 logging.error(f"An unexpected error occurred: {e}")
         
     def interface_for_close_field(self):
+        """
+        Launch a command-line interface for closing fields for changes.
+
+        This method presents a menu-driven interface for users to close specific fields for changes.
+        Users can choose to close the header or transaction fields for changes.
+        The interface ensures that changes are committed before exiting.
+
+        Returns
+        -------
+        None
+            This method does not return any value.
+    """
         while True:
             print("\nWhich filed do you want to close for changes:")
             print("1. Header")
@@ -690,7 +746,7 @@ class TransactionManager:
                         print("Field - Transactions is already closed for changes")
 
                 elif choice == "3":
-                    print("Going back")
+                    print("Going back...")
                     break
 
                 else:

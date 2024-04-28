@@ -9,7 +9,8 @@ def main():
         if res == 0:
             break    
     manager.user_interface()
-    print("#"  *120)
+    
+    print("#"  *120 + "\n")
 
 if __name__ == "__main__":
     main()
