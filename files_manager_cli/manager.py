@@ -119,18 +119,30 @@ class TransactionManager:
             return 1
 
         else:
+            # check structure
+            if len(self.data) < 2:
+                print("Invalid file structure")
+                return 1
+            
             # If data has been read check if mandatory filelds are in the file
-            if self.data[0][:2] != "01" or self.data[-1][0:2] != "03":
+            elif self.data[0][:2] != "01" or self.data[-1][0:2] != "03":
                 print("Invalid file structure: there is no header or footer")
                 logging.warning("Invalid file structure: there is no header or footer")
                 return 1
             
             else:
                 # read total counter 
-                self.total_counter = int(self.data[-1][2:8].lstrip("0"))
+                ttl_counter = self.data[-1][2:8].lstrip("0")
+
+                if len(ttl_counter) != 0:
+                    self.total_counter = int(ttl_counter)
+                else:
+                    self.total_counter = 0
+
 
                 # read control sum
                 ctr_sum = self.data[-1][8:20].lstrip("0")
+
                 if len(ctr_sum) != 0:
                     self.control_sum = float(ctr_sum[:-2] + "." + ctr_sum[-2:])
                 else:
@@ -308,6 +320,8 @@ class TransactionManager:
                 self.data[index][20:23],
                 self.data[index][23:].strip('\n')]
         
+        self.control_sum -= float(line[2])
+
         print(f"OLD amount: {line[2]}")
         new_amount = self.take_and_validate_amount()
 

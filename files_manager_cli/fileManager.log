@@ -35,3 +35,37 @@ ERROR : Date-Time : 2024-04-28 15:01:06,316 : Line No. : 609 - An unexpected err
 INFO : Date-Time : 2024-04-28 15:01:32,617 : Line No. : 602 - Exiting program.
 INFO : Date-Time : 2024-04-28 15:01:46,321 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
 ERROR : Date-Time : 2024-04-28 15:01:47,825 : Line No. : 609 - An unexpected error occurred: name 'add_error_here' is not defined
+INFO : Date-Time : 2024-04-29 12:19:55,405 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:19:57,879 : Line No. : 256 - Successfully show 6 transactions from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:20:02,092 : Line No. : 256 - Successfully show 1 transaction from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:20:05,087 : Line No. : 196 - Successfully show header from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:20:39,485 : Line No. : 319 - Successfully change transaction number: 3 from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:20:51,802 : Line No. : 256 - Successfully show 6 transactions from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:21:13,259 : Line No. : 493 - Successfully commit changes to testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:23:21,431 : Line No. : 286 - Successfully add transaction to testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:23:38,587 : Line No. : 319 - Successfully change transaction number: 4 from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:23:42,695 : Line No. : 493 - Successfully commit changes to testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:26:26,001 : Line No. : 601 - Exiting program.
+INFO : Date-Time : 2024-04-29 12:26:38,516 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:26:46,512 : Line No. : 256 - Successfully show 1 transaction from testFiles/validFile.txt
+ERROR : Date-Time : 2024-04-29 12:26:56,365 : Line No. : 709 - An unexpected error occurred: 'list' object is not callable
+INFO : Date-Time : 2024-04-29 12:27:35,754 : Line No. : 603 - Exiting program.
+INFO : Date-Time : 2024-04-29 12:27:50,069 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:28:04,489 : Line No. : 321 - Successfully change transaction number: 1 from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:28:08,376 : Line No. : 495 - Successfully commit changes to testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:28:13,126 : Line No. : 603 - Exiting program.
+INFO : Date-Time : 2024-04-29 12:28:32,406 : Line No. : 144 - Successfully read data from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:28:34,765 : Line No. : 256 - Successfully show 0 transaction from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:29:01,815 : Line No. : 603 - Exiting program.
+INFO : Date-Time : 2024-04-29 12:32:26,541 : Line No. : 151 - Successfully read data from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:32:38,463 : Line No. : 263 - Successfully show 0 transaction from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:32:58,259 : Line No. : 293 - Successfully add transaction to testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:33:01,720 : Line No. : 502 - Successfully commit changes to testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:33:05,816 : Line No. : 610 - Exiting program.
+WARNING : Date-Time : 2024-04-29 12:45:31,642 : Line No. : 113 - File not found
+WARNING : Date-Time : 2024-04-29 12:45:42,756 : Line No. : 113 - File not found
+INFO : Date-Time : 2024-04-29 12:45:54,641 : Line No. : 156 - Successfully read data from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:45:56,719 : Line No. : 268 - Successfully show 1 transaction from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:46:07,095 : Line No. : 298 - Successfully add transaction to testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 12:46:10,197 : Line No. : 268 - Successfully show 2 transactions from testFiles/validFile.txt
+INFO : Date-Time : 2024-04-29 14:54:20,333 : Line No. : 615 - Exiting program.
