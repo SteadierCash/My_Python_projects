@@ -139,7 +139,6 @@ class TransactionManager:
                 else:
                     self.total_counter = 0
 
-
                 # read control sum
                 ctr_sum = self.data[-1][8:20].lstrip("0")
 
