@@ -2,6 +2,19 @@
 
 A class for processing data from a file of fixed-width format. 
 
+## Files
+
+- **testFiles/**:Folder containing test files used for testing different functionalities of the project.
+- **.gitignore**
+
+- **README.md**
+- **TransactionManager - test and documentation.pdf** Document containing brief documentation of class methods and their tests.
+- **fileManager.log**: Log file capturing various activities and events related to the file management functionalities.
+- **main.py**: Main Python script serving as the entry point for executing the project's functionalities.
+- **manager.py**: Python module implementing core functionalities and logic for managing transactions and files.
+
+
+
 ## Attributes
 
 - `data`: list
