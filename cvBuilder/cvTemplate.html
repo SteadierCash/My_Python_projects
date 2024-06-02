@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mateusz Podstawka - CV</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { width: 80%; margin: auto; padding: 20px; }
+        h1, h2, h3 { color: #2E4053; }
+        p { line-height: 1.6; }
+        .contact-info, .links, .section { margin-bottom: 20px; }
+        .section-title { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ name }}</h1>
+        <div class="contact-info">
+            <p>{{ phone }} | {{ email }} | {{ location }}</p>
+        </div>
+        <div class="links">
+            <p><a href="{{ website }}">Website</a> | <a href="{{ linkedin }}">LinkedIn</a> | <a href="{{ github }}">GitHub</a></p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+            {% for job in experience %}
+            <div>
+                <h3>{{ job.company }}, {{ job.location }} {{ job.dates }}</h3>
+                <p><strong>{{ job.title }}</strong></p>
+                <p>{{ job.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            {% for edu in education %}
+            <div>
+                <p><strong>{{ edu.degree }}</strong> - {{ edu.institution }} ({{ edu.dates }})</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <p><strong>Programming Languages:</strong> {{ skills.programming }}</p>
+            <p><strong>Databases:</strong> {{ skills.databases }}</p>
+            <p><strong>Tools and Technologies:</strong> {{ skills.tools }}</p>
+            <p><strong>Soft skills:</strong> {{ skills.soft }}</p>
+            <p><strong>Languages:</strong> {{ skills.languages }}</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Certifications & Achievements</h2>
+            {% for cert in certifications %}
+            <div>
+                <p>{{ cert }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Personal Projects</h2>
+            {% for project in projects %}
+            <div>
+                <h3>{{ project.name }}</h3>
+                <p>{{ project.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">About Me</h2>
+            <p>{{ about_me }}</p>
+        </div>
+    </div>
+</body>
+</html>
